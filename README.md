@@ -1,0 +1,1 @@
+This script should connect to the Upper Deck ePack API using your browser cookies and download a list of your current collection and save it as a CSV.  It's using the modules requests, browser-cookie3, and tablib.
