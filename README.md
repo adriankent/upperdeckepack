@@ -1,4 +1,4 @@
-This script should connect to the Upper Deck ePack API using your browser cookies and download a list of your current collection and save it as a CSV.  It's using the modules requests, browser-cookie3, and tablib.
+This script should connect to the Upper Deck ePack API using your browser cookies and download a list of your current collection and save it as a CSV.  It's using the modules requests, browser-cookie3, tqdm, and tablib.
 
 Search Filters:
 Currently you need to specify the search filters you want to use manually in the script.  I've listed some common options below:
