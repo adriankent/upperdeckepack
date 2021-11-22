@@ -1,9 +1,11 @@
 import requests
 import browser_cookie3
 import tablib
+from tqdm import tqdm
 
 url = "https://www.upperdeckepack.com/api/Collection/ViewCards/"
-params = {"page": 1, "filters": "auto"}
+search_filters = "o_u"
+params = {"page": 1, "filters": search_filters}
 
 ud_cookies = browser_cookie3.load(domain_name="www.upperdeckepack.com")
 r = requests.get(url=url, cookies=ud_cookies, params=params)
@@ -23,8 +25,8 @@ card_inventory = tablib.Dataset(
         "Big Hit",
     ]
 )
-while cur_page <= num_pages:
-    params = {"page": cur_page}
+for cur_page in tqdm(range(1, num_pages)):
+    params = {"page": cur_page, "filters": search_filters}
     r = requests.get(url=url, cookies=ud_cookies, params=params)
     card_data = r.json()
     card_data_list = card_data["DisplayCards"]
